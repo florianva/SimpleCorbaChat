@@ -1,0 +1,19 @@
+module chat {
+	
+	interface ChatClient;
+	
+	interface ChatServer{
+		void register(in ChatClient client);
+		void unregister(in ChatClient client);
+		void sendToAll(in string msg, in ChatClient from);
+	};
+
+	typedef sequence<string> ConnectedUsers ;
+
+	interface ChatClient{
+		string getUserName();
+		void addMSG(in string msg);
+		void updateConnectedUsers(in ConnectedUsers names);
+	};
+
+};
